@@ -4,6 +4,12 @@
 
 	$: uppercaseName = name.toUpperCase();
 
+	$: console.log(name);
+
+	$: if (name === 'Yulian Karapetkov') {
+		age = 25;
+	}
+
 	function incrementAge() {
 		age++;
 	}
