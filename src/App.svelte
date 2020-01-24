@@ -8,13 +8,24 @@
 
     let contacts = [];
 
+    $: console.log(contacts);
+
     function addContact() {
-        const contact = { name, title, imageUrl, description };
+        const id = new Date().getTime();
+        const contact = { id, name, title, imageUrl, description };
 
         contacts = [
             ...contacts,
             contact
         ];
+    }
+
+    function deleteFirst() {
+        contacts = contacts.slice(1);
+    }
+
+    function deleteLast() {
+        contacts= contacts.slice(0, -1);
     }
 </script>
 
@@ -48,7 +59,15 @@
     Add contact
 </button>
 
-{#each contacts as contact, index}
+<button on:click="{deleteFirst}">
+    Delete first
+</button>
+
+<button on:click="{deleteLast}">
+    Delete last
+</button>
+
+{#each contacts as contact, index (contact.id)}
     <h2>#{index + 1}</h2>
     <ContactCard {...contact} />
 {:else}

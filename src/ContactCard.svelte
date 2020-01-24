@@ -1,8 +1,10 @@
 <script>
-  export let name;
-  export let title;
-  export let description;
-  export let imageUrl;
+    export let name;
+    export let title;
+    export let description;
+    export let imageUrl;
+
+    let upperCaseName = name.toUpperCase();
 </script>
 
 <style>
@@ -70,7 +72,7 @@
       <img src={imageUrl} alt={name} />
     </div>
     <div class="user-data">
-      <h1>{name}</h1>
+      <h1>{name} / {upperCaseName}</h1>
       <h2>{title}</h2>
     </div>
   </header>
