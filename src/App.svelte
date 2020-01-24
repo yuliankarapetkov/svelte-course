@@ -28,4 +28,6 @@
 <h1>Hello my name's {uppercaseName}, and I'm {age}.</h1>
 
 <button on:click="{incrementAge}">Increment age</button>
-<button on:click="{changeName}">Change name</button>
+<!-- <button on:click="{changeName}">Change name</button> -->
+
+<input type="text" bind:value="{name}" />
