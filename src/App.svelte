@@ -2,14 +2,19 @@
     import ContactCard from './ContactCard.svelte';
 
     let name = 'Yulian';
-    let title = '';
-    let image = '';
-    let description = '';
+    let title = 'Software Developer';
+    let imageUrl = 'https://avatars0.githubusercontent.com/u/6671521?s=220&v=4';
+    let description = 'Some description';
 
-    let done = false;
+    let contacts = [];
 
     function addContact() {
-        done = true;
+        const contact = { name, title, imageUrl, description };
+
+        contacts = [
+            ...contacts,
+            contact
+        ];
     }
 </script>
 
@@ -22,20 +27,20 @@
 
 <div id="form">
   <div class="form-control">
-    <label for="userName">User Name</label>
-    <input type="text" bind:value={name} id="userName" />
+    <label for="name">Name</label>
+    <input type="text" bind:value={name} id="name" />
   </div>
   <div class="form-control">
-    <label for="jobTitle">Job Title</label>
-    <input type="text" bind:value={title} id="jobTitle" />
+    <label for="title">Title</label>
+    <input type="text" bind:value={title} id="title" />
   </div>
   <div class="form-control">
-    <label for="image">Image URL</label>
-    <input type="text" bind:value={image} id="image" />
+    <label for="imageUrl">Image URL</label>
+    <input type="text" bind:value={imageUrl} id="imageUrl" />
   </div>
   <div class="form-control">
-    <label for="desc">Description</label>
-    <textarea rows="3" bind:value={description} id="desc" />
+    <label for="description">Description</label>
+    <textarea rows="3" bind:value={description} id="description" />
   </div>
 </div>
 
@@ -43,6 +48,9 @@
     Add contact
 </button>
 
-{#if done}
-    <ContactCard userName={name} jobTitle={title} {description} userImage={image} />
-{/if}
+{#each contacts as contact, index}
+    <h2>#{index + 1}</h2>
+    <ContactCard {...contact} />
+{:else}
+    No contacts here yet. :(
+{/each}

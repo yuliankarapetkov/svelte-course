@@ -1,8 +1,8 @@
 <script>
-  export let userName;
-  export let jobTitle;
+  export let name;
+  export let title;
   export let description;
-  export let userImage;
+  export let imageUrl;
 </script>
 
 <style>
@@ -66,12 +66,12 @@
 
 <div class="contact-card">
   <header>
-    <div class="thumb" class:thumb-placeholder="{!userImage}">
-      <img src={userImage} alt={userName} />
+    <div class="thumb" class:thumb-placeholder="{!imageUrl}">
+      <img src={imageUrl} alt={name} />
     </div>
     <div class="user-data">
-      <h1>{userName}</h1>
-      <h2>{jobTitle}</h2>
+      <h1>{name}</h1>
+      <h2>{title}</h2>
     </div>
   </header>
   <div class="description">
