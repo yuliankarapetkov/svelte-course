@@ -1,10 +1,16 @@
 <script>
-  import ContactCard from "./ContactCard.svelte";
+    import ContactCard from './ContactCard.svelte';
 
-  let name = "Max";
-  let title = "";
-  let image = "";
-  let description = "";
+    let name = 'Yulian';
+    let title = '';
+    let image = '';
+    let description = '';
+
+    let done = false;
+
+    function addContact() {
+        done = true;
+    }
 </script>
 
 <style>
@@ -33,4 +39,10 @@
   </div>
 </div>
 
-<ContactCard userName={name} jobTitle={title} {description} userImage={image} />
+<button on:click="{addContact}">
+    Add contact
+</button>
+
+{#if done}
+    <ContactCard userName={name} jobTitle={title} {description} userImage={image} />
+{/if}
